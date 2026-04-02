@@ -1,75 +1,38 @@
 [
   {
-    "tag_name": "fa956b5",
+    "tag_name": "0.1.4",
     "assets": [
       {
-        "name": "solx-linux-amd64-gnu-notag",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/fa956b5/solx-linux-amd64-gnu-notag"
+        "name": "solx-linux-amd64-gnu-v0.1.4",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.4/solx-linux-amd64-gnu-v0.1.4"
       },
       {
-        "name": "solx-linux-amd64-gnu-notag.sha256",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/fa956b5/solx-linux-amd64-gnu-notag.sha256"
+        "name": "solx-linux-amd64-gnu-v0.1.4.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.4/solx-linux-amd64-gnu-v0.1.4.sha256"
       },
       {
-        "name": "solx-linux-arm64-gnu-notag",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/fa956b5/solx-linux-arm64-gnu-notag"
+        "name": "solx-linux-arm64-gnu-v0.1.4",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.4/solx-linux-arm64-gnu-v0.1.4"
       },
       {
-        "name": "solx-linux-arm64-gnu-notag.sha256",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/fa956b5/solx-linux-arm64-gnu-notag.sha256"
+        "name": "solx-linux-arm64-gnu-v0.1.4.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.4/solx-linux-arm64-gnu-v0.1.4.sha256"
       },
       {
-        "name": "solx-macosx-notag",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/fa956b5/solx-macosx-notag"
+        "name": "solx-macosx-v0.1.4",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.4/solx-macosx-v0.1.4"
       },
       {
-        "name": "solx-macosx-notag.sha256",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/fa956b5/solx-macosx-notag.sha256"
+        "name": "solx-macosx-v0.1.4.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.4/solx-macosx-v0.1.4.sha256"
       },
       {
-        "name": "solx-windows-amd64-gnu-notag.exe",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/fa956b5/solx-windows-amd64-gnu-notag.exe"
+        "name": "solx-windows-amd64-gnu-v0.1.4.exe",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.4/solx-windows-amd64-gnu-v0.1.4.exe"
       },
       {
-        "name": "solx-windows-amd64-gnu-notag.exe.sha256",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/fa956b5/solx-windows-amd64-gnu-notag.exe.sha256"
-      }
-    ]
-  },
-  {
-    "tag_name": "60c83f6",
-    "assets": [
-      {
-        "name": "solx-linux-amd64-gnu-notag",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/60c83f6/solx-linux-amd64-gnu-notag"
-      },
-      {
-        "name": "solx-linux-amd64-gnu-notag.sha256",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/60c83f6/solx-linux-amd64-gnu-notag.sha256"
-      },
-      {
-        "name": "solx-linux-arm64-gnu-notag",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/60c83f6/solx-linux-arm64-gnu-notag"
-      },
-      {
-        "name": "solx-linux-arm64-gnu-notag.sha256",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/60c83f6/solx-linux-arm64-gnu-notag.sha256"
-      },
-      {
-        "name": "solx-macosx-notag",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/60c83f6/solx-macosx-notag"
-      },
-      {
-        "name": "solx-macosx-notag.sha256",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/60c83f6/solx-macosx-notag.sha256"
-      },
-      {
-        "name": "solx-windows-amd64-gnu-notag.exe",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/60c83f6/solx-windows-amd64-gnu-notag.exe"
-      },
-      {
-        "name": "solx-windows-amd64-gnu-notag.exe.sha256",
-        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/60c83f6/solx-windows-amd64-gnu-notag.exe.sha256"
+        "name": "solx-windows-amd64-gnu-v0.1.4.exe.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.4/solx-windows-amd64-gnu-v0.1.4.exe.sha256"
       }
     ]
   },
