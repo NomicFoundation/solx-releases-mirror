@@ -1,5 +1,42 @@
 [
   {
+    "tag_name": "0.1.6",
+    "assets": [
+      {
+        "name": "solx-linux-amd64-gnu-v0.1.6",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.6/solx-linux-amd64-gnu-v0.1.6"
+      },
+      {
+        "name": "solx-linux-amd64-gnu-v0.1.6.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.6/solx-linux-amd64-gnu-v0.1.6.sha256"
+      },
+      {
+        "name": "solx-linux-arm64-gnu-v0.1.6",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.6/solx-linux-arm64-gnu-v0.1.6"
+      },
+      {
+        "name": "solx-linux-arm64-gnu-v0.1.6.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.6/solx-linux-arm64-gnu-v0.1.6.sha256"
+      },
+      {
+        "name": "solx-macosx-v0.1.6",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.6/solx-macosx-v0.1.6"
+      },
+      {
+        "name": "solx-macosx-v0.1.6.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.6/solx-macosx-v0.1.6.sha256"
+      },
+      {
+        "name": "solx-windows-amd64-gnu-v0.1.6.exe",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.6/solx-windows-amd64-gnu-v0.1.6.exe"
+      },
+      {
+        "name": "solx-windows-amd64-gnu-v0.1.6.exe.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/0.1.6/solx-windows-amd64-gnu-v0.1.6.exe.sha256"
+      }
+    ]
+  },
+  {
     "tag_name": "0.1.5",
     "assets": [
       {
