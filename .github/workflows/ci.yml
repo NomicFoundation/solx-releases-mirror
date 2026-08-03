@@ -1,0 +1,48 @@
+# The mirror updater only ever runs on a schedule against live data, so a
+# break in it surfaces as a silently stale mirror rather than a failing check.
+# This runs the real updater on PRs — the same command as update-mirror.yml,
+# minus the step that opens the PR, so nothing is committed and the token
+# stays read-only.
+
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{github.workflow}}-${{github.ref}}
+  cancel-in-progress: true
+
+jobs:
+  update-mirror:
+    name: Update mirror
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      # The updater rewrites public/ from scratch, so don't fetch its
+      # multi-gigabyte committed contents just to overwrite them.
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout: .github
+
+      # Keep the major in lockstep with update-mirror.yml — a different one
+      # here would smoke-test a runtime production never uses.
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 22
+
+      # The sparse checkout leaves out public/, and the updater expects it.
+      - run: mkdir -p public
+
+      - name: Update mirror
+        run: node index.mjs
+        env:
+          # Only for the rate limit — the releases API is public, but the
+          # anonymous budget is shared across every runner on this IP.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
