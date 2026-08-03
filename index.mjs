@@ -20,13 +20,17 @@ if (!respose.ok) {
 }
 
 const rawList = await respose.json();
-const list = rawList.map(({ assets, tag_name }) => ({
-  tag_name,
-  assets: assets.map(({ name, browser_download_url }) => ({
-    name,
-    browser_download_url,
-  })),
-}));
+
+// Nightly and demo prereleases are ad-hoc builds, not compilers we distribute.
+const list = rawList
+  .filter(({ prerelease }) => !prerelease)
+  .map(({ assets, tag_name }) => ({
+    tag_name,
+    assets: assets.map(({ name, browser_download_url }) => ({
+      name,
+      browser_download_url,
+    })),
+  }));
 
 await fs.writeFileSync(
   path.join(DIRNAME, "public", LIST_FILENAME),
