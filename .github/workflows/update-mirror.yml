@@ -20,6 +20,8 @@ jobs:
           node-version: 22
       - name: Update mirror
         run: node index.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v7
