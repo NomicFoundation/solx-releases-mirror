@@ -11,6 +11,15 @@ const RELEASES_LIST_API_URL =
 const LIST_FILENAME = "list.json";
 const TMP_DIR = os.tmpdir();
 
+// A dry run does everything a real one does except touch public/ or transfer
+// asset bodies — it HEAD-checks each URL instead. That keeps it cheap enough to
+// run on every PR, where downloading the whole multi-gigabyte mirror is not.
+const DRY_RUN = process.argv.includes("--dry-run");
+
+const OUTPUT_DIR = DRY_RUN
+  ? fs.mkdtempSync(path.join(TMP_DIR, "mirror-dry-run-"))
+  : path.join(DIRNAME, "public");
+
 console.log("Downloading releases list");
 
 const apiHeaders = {
@@ -52,8 +61,53 @@ const list = rawList
     })),
   }));
 
+if (DRY_RUN) {
+  const problems = [];
+  const mirroredAs = new Map();
+
+  if (list.length === 0) {
+    problems.push("the releases list is empty");
+  }
+
+  for (const { tag_name, assets } of list) {
+    if (!tag_name) {
+      problems.push("a release has no tag_name");
+    }
+
+    if (assets.length === 0) {
+      problems.push(`${tag_name} has no assets`);
+    }
+
+    for (const { name, browser_download_url } of assets) {
+      if (!name || !browser_download_url) {
+        problems.push(`${tag_name} has an asset with no name or no URL`);
+        continue;
+      }
+
+      // Every release's assets land in one flat directory keyed by filename, so
+      // two releases mirroring the same name would silently clobber each other.
+      const filename = path.basename(browser_download_url);
+      const claimedBy = mirroredAs.get(filename);
+
+      if (claimedBy !== undefined) {
+        problems.push(`${claimedBy} and ${tag_name} both mirror ${filename}`);
+      } else {
+        mirroredAs.set(filename, tag_name);
+      }
+    }
+  }
+
+  if (problems.length > 0) {
+    console.error(`\n${problems.length} problems in the releases list:`);
+    for (const problem of problems) {
+      console.error(`  ${problem}`);
+    }
+    process.exit(1);
+  }
+}
+
 await fs.writeFileSync(
-  path.join(DIRNAME, "public", LIST_FILENAME),
+  path.join(OUTPUT_DIR, LIST_FILENAME),
   JSON.stringify(list, undefined, 2),
   "utf-8",
 );
@@ -62,25 +116,53 @@ const urls = list
   .map((release) => release.assets.map((asset) => asset.browser_download_url))
   .flat();
 
-console.log(`Downloading ${urls.length} compiler assets`);
+console.log(
+  DRY_RUN
+    ? `Checking ${urls.length} compiler asset URLs`
+    : `Downloading ${urls.length} compiler assets`,
+);
 
 // Report every failed asset, not just whichever rejected first.
-const downloads = await Promise.allSettled(
+const results = await Promise.allSettled(
   urls.map(async (url) => {
     const filename = path.basename(url);
-    await download(url, path.join(DIRNAME, "public", filename));
+
+    if (DRY_RUN) {
+      const size = await checkAvailable(url);
+      console.log(filename, "available");
+      return size;
+    }
+
+    await download(url, path.join(OUTPUT_DIR, filename));
     console.log(filename, "downloaded");
+    return 0;
   }),
 );
 
-const failed = downloads.filter(({ status }) => status === "rejected");
+const failed = results.filter(({ status }) => status === "rejected");
 
 if (failed.length > 0) {
-  console.error(`\n${failed.length} of ${urls.length} downloads failed:`);
+  console.error(
+    `\n${failed.length} of ${urls.length} assets ${DRY_RUN ? "are unavailable" : "failed to download"}:`,
+  );
   for (const { reason } of failed) {
     console.error(`  ${reason?.message ?? reason}`);
   }
   process.exit(1);
+}
+
+// HEAD, so an unreachable asset costs one request to detect instead of a
+// multi-megabyte transfer. content-length is what the mirror would store.
+export async function checkAvailable(url) {
+  const response = await fetch(url, { method: "HEAD" });
+
+  if (!response.ok) {
+    throw new Error(
+      `Asset unavailable ${url}: ${response.status} ${response.statusText}`,
+    );
+  }
+
+  return Number(response.headers.get("content-length") ?? 0);
 }
 
 export async function download(url, filePath) {
@@ -105,7 +187,14 @@ export async function download(url, filePath) {
 
 const readme = fs.readFileSync(path.join(DIRNAME, "README.md"), "utf-8");
 
-fs.writeFileSync(
-  path.join(DIRNAME, "public", "index.html"),
-  `<pre>${readme}</pre>`,
-);
+fs.writeFileSync(path.join(OUTPUT_DIR, "index.html"), `<pre>${readme}</pre>`);
+
+if (DRY_RUN) {
+  const bytes = results.reduce((total, { value }) => total + value, 0);
+
+  console.log(
+    `\nDry run passed: ${list.length} releases, ${urls.length} assets, ` +
+      `${(bytes / 1024 ** 3).toFixed(1)} GiB of payload.`,
+  );
+  console.log(`Generated ${LIST_FILENAME} and index.html in ${OUTPUT_DIR}`);
+}
