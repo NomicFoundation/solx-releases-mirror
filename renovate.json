@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+  "timezone": "UTC",
+  "schedule": ["before 9am on Monday"],
+  "minimumReleaseAge": "7 days",
+  "internalChecksFilter": "strict",
+  "ignorePaths": ["public/**"],
+  "packageRules": [
+    {
+      "description": "Extra cooldown for majors",
+      "matchUpdateTypes": ["major"],
+      "minimumReleaseAge": "30 days"
+    },
+    {
+      "description": "github-actions: group everything, including majors",
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions"
+    },
+    {
+      "description": "node: the runner's Node major is a runtime change, not an action bump. Keep it out of the actions group so it gets its own PR.",
+      "matchDepNames": ["node"],
+      "groupName": null
+    }
+  ],
+  "configMigration": true,
+  "dependencyDashboard": false,
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "enabled": true
+  }
+}
