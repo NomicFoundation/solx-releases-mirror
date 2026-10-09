@@ -44,7 +44,11 @@ if (!response.ok) {
 const rawList = await response.json();
 
 // Nightly and demo prereleases are ad-hoc builds, not compilers we distribute.
-const releases = rawList.filter(({ prerelease }) => !prerelease);
+// LFS TEST, drop before merge: let the slang demo prerelease through, as its
+// macOS binary is over 100 MiB.
+const releases = rawList.filter(
+  ({ prerelease, tag_name }) => !prerelease || tag_name === "b74af542",
+);
 
 // An asset over GitHub's limit can only be pushed through Git LFS. Fail here,
 // naming each one, rather than at the push once everything is downloaded.

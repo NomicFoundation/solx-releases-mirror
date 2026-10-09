@@ -36,10 +36,11 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: update-mirror
+          # LFS TEST, drop before merge: keep clear of the hourly job on main,
+          # which reuses update-mirror and would reset or delete this PR.
+          branch: update-mirror-lfs-test
           delete-branch: true
-          title: "Update mirror"
+          title: "[LFS test] Update mirror"
           body: |
             The mirror has been updated
-          assignees: alcuadrado
           draft: false
