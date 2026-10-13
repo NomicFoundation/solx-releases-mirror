@@ -1,5 +1,42 @@
 [
   {
+    "tag_name": "b74af542",
+    "assets": [
+      {
+        "name": "solx-linux-amd64-gnu-slang-2026-10-01",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/b74af542/solx-linux-amd64-gnu-slang-2026-10-01"
+      },
+      {
+        "name": "solx-linux-amd64-gnu-slang-2026-10-01.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/b74af542/solx-linux-amd64-gnu-slang-2026-10-01.sha256"
+      },
+      {
+        "name": "solx-linux-arm64-gnu-slang-2026-10-01",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/b74af542/solx-linux-arm64-gnu-slang-2026-10-01"
+      },
+      {
+        "name": "solx-linux-arm64-gnu-slang-2026-10-01.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/b74af542/solx-linux-arm64-gnu-slang-2026-10-01.sha256"
+      },
+      {
+        "name": "solx-macosx-slang-2026-10-01",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/b74af542/solx-macosx-slang-2026-10-01"
+      },
+      {
+        "name": "solx-macosx-slang-2026-10-01.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/b74af542/solx-macosx-slang-2026-10-01.sha256"
+      },
+      {
+        "name": "solx-windows-amd64-gnu-slang-2026-10-01.exe",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/b74af542/solx-windows-amd64-gnu-slang-2026-10-01.exe"
+      },
+      {
+        "name": "solx-windows-amd64-gnu-slang-2026-10-01.exe.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/b74af542/solx-windows-amd64-gnu-slang-2026-10-01.exe.sha256"
+      }
+    ]
+  },
+  {
     "tag_name": "0.1.8",
     "assets": [
       {
