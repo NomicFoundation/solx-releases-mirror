@@ -1,3 +1,4 @@
+import { execFileSync } from "child_process";
 import fs from "fs";
 import { pipeline } from "stream";
 import util from "util";
@@ -9,6 +10,7 @@ const DIRNAME = path.dirname(new URL(import.meta.url).pathname);
 const RELEASES_LIST_API_URL =
   "https://api.github.com/repos/NomicFoundation/solx/releases?per_page=200";
 const LIST_FILENAME = "list.json";
+const GITHUB_FILE_SIZE_LIMIT = 100 * 1024 * 1024;
 const TMP_DIR = os.tmpdir();
 
 console.log("Downloading releases list");
@@ -42,15 +44,41 @@ if (!response.ok) {
 const rawList = await response.json();
 
 // Nightly and demo prereleases are ad-hoc builds, not compilers we distribute.
-const list = rawList
-  .filter(({ prerelease }) => !prerelease)
-  .map(({ assets, tag_name }) => ({
-    tag_name,
-    assets: assets.map(({ name, browser_download_url }) => ({
-      name,
-      browser_download_url,
-    })),
-  }));
+// LFS TEST, drop before merge: let the slang demo prerelease through, as its
+// macOS binary is over 100 MiB.
+const releases = rawList.filter(
+  ({ prerelease, tag_name }) => !prerelease || tag_name === "b74af542",
+);
+
+// An asset over GitHub's limit can only be pushed through Git LFS. Fail here,
+// naming each one, rather than at the push once everything is downloaded.
+// .gitattributes decides which paths go to LFS.
+const oversized = releases
+  .flatMap(({ assets }) => assets)
+  .filter(({ size }) => size > GITHUB_FILE_SIZE_LIMIT)
+  .filter(({ name }) => !isStoredInLfs(path.join("public", name)));
+
+if (oversized.length > 0) {
+  console.error(
+    [
+      `${oversized.length} asset(s) exceed GitHub's 100 MiB file limit and are not stored with Git LFS:`,
+      ...oversized.map(
+        ({ name, size }) => `  ${name}: ${(size / 1024 / 1024).toFixed(1)} MiB`,
+      ),
+      "Add a pattern covering them to .gitattributes.",
+    ].join("\n"),
+  );
+
+  process.exit(1);
+}
+
+const list = releases.map(({ assets, tag_name }) => ({
+  tag_name,
+  assets: assets.map(({ name, browser_download_url }) => ({
+    name,
+    browser_download_url,
+  })),
+}));
 
 await fs.writeFileSync(
   path.join(DIRNAME, "public", LIST_FILENAME),
@@ -81,6 +109,15 @@ if (failed.length > 0) {
     console.error(`  ${reason?.message ?? reason}`);
   }
   process.exit(1);
+}
+
+function isStoredInLfs(filePath) {
+  const output = execFileSync("git", ["check-attr", "filter", "--", filePath], {
+    cwd: DIRNAME,
+    encoding: "utf-8",
+  });
+
+  return output.trim().endsWith(": filter: lfs");
 }
 
 export async function download(url, filePath) {
