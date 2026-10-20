@@ -1,0 +1,12 @@
+# Compiler binaries go to Git LFS
+public/solx-* filter=lfs diff=lfs merge=lfs -text
+public/slang-* filter=lfs diff=lfs merge=lfs -text
+
+# Except the releases committed before LFS was enabled (0.1.0-alpha.1 to
+# 0.1.8), which stay ordinary git files.
+public/solx-*-v0.1.[0-8] !filter !diff !merge !text
+public/solx-*-v0.1.[0-8].* !filter !diff !merge !text
+public/solx-*-v0.1.0-alpha.* !filter !diff !merge !text
+
+# Checksums are tiny: keep them out of LFS.
+public/*.sha256 !filter !diff !merge !text
