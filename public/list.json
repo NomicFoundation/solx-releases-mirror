@@ -1,5 +1,116 @@
 [
   {
+    "tag_name": "5e6ec5e1",
+    "assets": [
+      {
+        "name": "slang-linux-amd64-gnu-debug-fast",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/5e6ec5e1/slang-linux-amd64-gnu-debug-fast"
+      },
+      {
+        "name": "slang-linux-amd64-gnu-debug-fast.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/5e6ec5e1/slang-linux-amd64-gnu-debug-fast.sha256"
+      },
+      {
+        "name": "slang-linux-arm64-gnu-debug-fast",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/5e6ec5e1/slang-linux-arm64-gnu-debug-fast"
+      },
+      {
+        "name": "slang-linux-arm64-gnu-debug-fast.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/5e6ec5e1/slang-linux-arm64-gnu-debug-fast.sha256"
+      },
+      {
+        "name": "slang-macosx-debug-fast",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/5e6ec5e1/slang-macosx-debug-fast"
+      },
+      {
+        "name": "slang-macosx-debug-fast.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/5e6ec5e1/slang-macosx-debug-fast.sha256"
+      },
+      {
+        "name": "slang-windows-amd64-gnu-debug-fast.exe",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/5e6ec5e1/slang-windows-amd64-gnu-debug-fast.exe"
+      },
+      {
+        "name": "slang-windows-amd64-gnu-debug-fast.exe.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/5e6ec5e1/slang-windows-amd64-gnu-debug-fast.exe.sha256"
+      }
+    ]
+  },
+  {
+    "tag_name": "cc66c013",
+    "assets": [
+      {
+        "name": "slang-linux-amd64-gnu-slang-debug-symbols",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/cc66c013/slang-linux-amd64-gnu-slang-debug-symbols"
+      },
+      {
+        "name": "slang-linux-amd64-gnu-slang-debug-symbols.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/cc66c013/slang-linux-amd64-gnu-slang-debug-symbols.sha256"
+      },
+      {
+        "name": "slang-linux-arm64-gnu-slang-debug-symbols",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/cc66c013/slang-linux-arm64-gnu-slang-debug-symbols"
+      },
+      {
+        "name": "slang-linux-arm64-gnu-slang-debug-symbols.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/cc66c013/slang-linux-arm64-gnu-slang-debug-symbols.sha256"
+      },
+      {
+        "name": "slang-macosx-slang-debug-symbols",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/cc66c013/slang-macosx-slang-debug-symbols"
+      },
+      {
+        "name": "slang-macosx-slang-debug-symbols.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/cc66c013/slang-macosx-slang-debug-symbols.sha256"
+      },
+      {
+        "name": "slang-windows-amd64-gnu-slang-debug-symbols.exe",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/cc66c013/slang-windows-amd64-gnu-slang-debug-symbols.exe"
+      },
+      {
+        "name": "slang-windows-amd64-gnu-slang-debug-symbols.exe.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/cc66c013/slang-windows-amd64-gnu-slang-debug-symbols.exe.sha256"
+      }
+    ]
+  },
+  {
+    "tag_name": "62d94366",
+    "assets": [
+      {
+        "name": "slang-linux-amd64-gnu-2026-10-09",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/62d94366/slang-linux-amd64-gnu-2026-10-09"
+      },
+      {
+        "name": "slang-linux-amd64-gnu-2026-10-09.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/62d94366/slang-linux-amd64-gnu-2026-10-09.sha256"
+      },
+      {
+        "name": "slang-linux-arm64-gnu-2026-10-09",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/62d94366/slang-linux-arm64-gnu-2026-10-09"
+      },
+      {
+        "name": "slang-linux-arm64-gnu-2026-10-09.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/62d94366/slang-linux-arm64-gnu-2026-10-09.sha256"
+      },
+      {
+        "name": "slang-macosx-2026-10-09",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/62d94366/slang-macosx-2026-10-09"
+      },
+      {
+        "name": "slang-macosx-2026-10-09.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/62d94366/slang-macosx-2026-10-09.sha256"
+      },
+      {
+        "name": "slang-windows-amd64-gnu-2026-10-09.exe",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/62d94366/slang-windows-amd64-gnu-2026-10-09.exe"
+      },
+      {
+        "name": "slang-windows-amd64-gnu-2026-10-09.exe.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/62d94366/slang-windows-amd64-gnu-2026-10-09.exe.sha256"
+      }
+    ]
+  },
+  {
     "tag_name": "0.1.8",
     "assets": [
       {
