@@ -9,8 +9,9 @@ Please, don't use this mirror directly from GitHub. Use [its website](https://so
 1. The mirror serves the [`public/`](https://github.com/NomicFoundation/solx-releases-mirror/tree/main/public) folder present in its repository.
 2. It has a `list.json` file in its root, which is a simplified version of a the response of [this API call](https://api.github.com/repos/NomicFoundation/solx/releases?per_page=200).
 3. Each of the assets listed in `list.json` has been downloaded into the root of the mirror, with the same name.
-4. The mirror gets updated every hour.
-5. Compiler binaries released after solx 0.1.8 are stored with [Git LFS](https://git-lfs.com), since GitHub rejects any pushed file over 100 MiB. Earlier releases stay ordinary git files; see [`.gitattributes`](./.gitattributes).
+4. Slang prereleases are mirrored alongside releases, and listed in `list.json` the same way. Prereleases that ship solx binaries are not mirrored.
+5. The mirror gets updated every hour.
+6. Compiler binaries released after solx 0.1.8 are stored with [Git LFS](https://git-lfs.com), since GitHub rejects any pushed file over 100 MiB. Earlier releases stay ordinary git files; see [`.gitattributes`](./.gitattributes).
 
 ## `list.json` format
 
