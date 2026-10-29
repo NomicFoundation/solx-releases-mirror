@@ -1,5 +1,42 @@
 [
   {
+    "tag_name": "d95c1150",
+    "assets": [
+      {
+        "name": "slang-linux-amd64-gnu-2026-10-29",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/d95c1150/slang-linux-amd64-gnu-2026-10-29"
+      },
+      {
+        "name": "slang-linux-amd64-gnu-2026-10-29.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/d95c1150/slang-linux-amd64-gnu-2026-10-29.sha256"
+      },
+      {
+        "name": "slang-linux-arm64-gnu-2026-10-29",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/d95c1150/slang-linux-arm64-gnu-2026-10-29"
+      },
+      {
+        "name": "slang-linux-arm64-gnu-2026-10-29.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/d95c1150/slang-linux-arm64-gnu-2026-10-29.sha256"
+      },
+      {
+        "name": "slang-macosx-2026-10-29",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/d95c1150/slang-macosx-2026-10-29"
+      },
+      {
+        "name": "slang-macosx-2026-10-29.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/d95c1150/slang-macosx-2026-10-29.sha256"
+      },
+      {
+        "name": "slang-windows-amd64-gnu-2026-10-29.exe",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/d95c1150/slang-windows-amd64-gnu-2026-10-29.exe"
+      },
+      {
+        "name": "slang-windows-amd64-gnu-2026-10-29.exe.sha256",
+        "browser_download_url": "https://github.com/NomicFoundation/solx/releases/download/d95c1150/slang-windows-amd64-gnu-2026-10-29.exe.sha256"
+      }
+    ]
+  },
+  {
     "tag_name": "5e6ec5e1",
     "assets": [
       {
